@@ -15,3 +15,7 @@
   /* Firefox */
   touch-action: manipulation;
 }
+
+html,body{
+  background-color: #f0f0f0;
+}
