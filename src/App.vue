@@ -1,12 +1,6 @@
 <template>
-  <div 
-    class="touchable-area" 
-    @mousedown="handleTouchStart" 
-    @mouseup="handleTouchEnd"
-    @mouseleave="handleTouchEnd"
-    @touchstart="handleTouchStart" 
-    @touchend="handleTouchEnd"
-  >
+  <div class="touchable-area" @mousedown="handleTouchStart" @mouseup="handleTouchEnd" @mouseleave="handleTouchEnd"
+    @touchstart="handleTouchStart" @touchend="handleTouchEnd">
     <p class="counter">Touch Count: {{ counter }}</p>
     <button class="reset-button" @click="resetCounter">Reset</button>
   </div>
@@ -33,15 +27,15 @@ const resetCounter = () => {
 };
 
 onMounted(() => {
-  const tg = window.Telegram.WebApp;
+  if (window.Telegram?.WebApp) {
+    const tg = window.Telegram.WebApp;
 
-  // گسترش Web App به صورت تمام صفحه
-  tg.expand();
+    tg.expand();
 
-  // تغییر تم بر اساس تم تلگرام
-  const isDarkTheme = tg.themeParams?.theme === "dark";
-  document.body.style.backgroundColor = isDarkTheme ? "#1c1c1c" : "#ffffff";
-  document.body.style.color = isDarkTheme ? "#ffffff" : "#000000";
+    const isDarkTheme = tg.themeParams?.theme === "dark";
+    document.body.style.backgroundColor = isDarkTheme ? "#1c1c1c" : "#ffffff";
+    document.body.style.color = isDarkTheme ? "#ffffff" : "#000000";
+  }
 });
 </script>
 
