@@ -25,7 +25,6 @@ const handleTouchStart = () => {
 const handleTouchEnd = () => {
   isPressed.value = false;
 };
-
 const resetCounter = () => {
   counter.value = 0;
   period.value =0;
