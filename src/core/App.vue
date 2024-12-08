@@ -1,5 +1,5 @@
 <template>
-  <div class="touchable-area" @mousedown="handleTouchStart" @mouseup="handleTouchEnd" @mouseleave="handleTouchEnd"
+  <div class="touchable-area"  @mouseup="handleTouchEnd" @mouseleave="handleTouchEnd"
     @touchstart="handleTouchStart" @touchend="handleTouchEnd">
     <p class="counter">صلوات : {{ counter }}</p>
     <button class="reset-button" @click="resetCounter">پاک کردن</button>
