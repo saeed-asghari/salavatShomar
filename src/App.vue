@@ -1,8 +1,8 @@
 <template>
   <div class="touchable-area" @mousedown="handleTouchStart" @mouseup="handleTouchEnd" @mouseleave="handleTouchEnd"
     @touchstart="handleTouchStart" @touchend="handleTouchEnd">
-    <p class="counter">Touch Count: {{ counter }}</p>
-    <button class="reset-button" @click="resetCounter">Reset</button>
+    <p class="counter">صلوات : {{ counter }}</p>
+    <button class="reset-button" @click="resetCounter">پاک کردن</button>
   </div>
 </template>
 
@@ -12,7 +12,6 @@ import { ref, onMounted } from "vue";
 
 const counter = ref(0);
 const isPressed = ref(false);
-
 const handleTouchStart = () => {
   isPressed.value = true;
   counter.value++;
