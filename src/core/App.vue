@@ -28,6 +28,7 @@ const handleTouchEnd = () => {
 
 const resetCounter = () => {
   counter.value = 0;
+  period.value =0;
 };
 
 onMounted(() => {
