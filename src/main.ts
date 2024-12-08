@@ -1,14 +1,34 @@
-import './assets/main.css'
-
 import { createApp } from 'vue'
-import { createPinia } from 'pinia'
+import App from '@/core/App.vue';
+import { CoreModule } from '@/core'
+import { RouterModule } from '@/router'
+import { createPinia } from 'pinia';
 
-import App from './App.vue'
-import router from './router'
+function bootstrap() {
 
-const app = createApp(App)
 
-app.use(createPinia())
-app.use(router)
+  const app = createApp(App);
+  const pinia = createPinia();
 
-app.mount('#app')
+
+  const routerModule = new RouterModule();
+  routerModule.install(app);
+  if(import.meta.env.PROD){
+  app.config.errorHandler = (err: any, vm: any, info: any) => {
+    if(import.meta.env.DEV){
+      console.log(`Error: ${err.toString()}\nInfo: ${info}`);
+    }
+    return false
+  };
+}
+  
+
+  const coreModule = new CoreModule(pinia, routerModule.traderRouter!);
+  coreModule.install(app);
+
+}
+
+bootstrap()
+
+
+
