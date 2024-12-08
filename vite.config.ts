@@ -19,4 +19,9 @@ export default defineConfig({
   build: {
     outDir: "dist", 
   },
+  server: {
+    headers: {
+      'X-Content-Type-Options': 'nosniff',
+    },
+  },
 })
