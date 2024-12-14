@@ -50,7 +50,7 @@ onMounted(() => {
   align-items: center;
   justify-content: center;
   width: 100vw;
-  height: 100vh;
+  height: 100dvh;
   background-color: #f0f0f0;
   transition: background-color 0.2s ease, transform 0.1s ease;
   user-select: none;
